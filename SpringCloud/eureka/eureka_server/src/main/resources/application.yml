@@ -18,6 +18,7 @@ eureka:
       defaultZone: ${EUREKA_SERVER_URL:http://eurekaserver:8761/eureka}
     register-with-eureka: ${REGISTER-WITH-EUREKA:true}
     fetch-registry: ${FETCH-REGISTRY:false}
+#docker run --name eureka-server -p 8761:8761 -e REGISTER-WITH-EUREKA=false -d eureka-server:1.0
 #集群
 #server:
 #  port: 8761

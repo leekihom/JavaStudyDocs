@@ -6,8 +6,11 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://110.41.130.22:8761/eureka
+      defaultZone: http://127.0.0.1:8761/eureka
   instance:
     hostname: localhost
     prefer-ip-address: true
     instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
