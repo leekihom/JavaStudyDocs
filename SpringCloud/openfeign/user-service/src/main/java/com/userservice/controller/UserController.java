@@ -18,7 +18,10 @@ public class UserController {
     @Autowired
     public UserOrderFeign userOrderFeign;
 
-
+    /**
+     * feign远程调用有时间的限制，默认 1s
+     * @return
+     */
     @GetMapping("userDoOrder")
     public String userDoOrder(){
 
