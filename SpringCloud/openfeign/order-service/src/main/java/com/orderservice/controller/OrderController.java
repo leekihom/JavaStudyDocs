@@ -18,7 +18,7 @@ public class OrderController {
     @GetMapping("doOrder")
     public String doOrder(){
         try{
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(1);
         }catch(InterruptedException e){
             e.printStackTrace();
         }
