@@ -7,9 +7,9 @@ eureka:
   client:
     server-url: #指定注册地址
       defaultZone: http://localhost:8761/eureka
-#      register-with-eureka: true #可以不往eureka-server注册
-#      fetch-registry: true #应用是否去拉去服务列表
-#      registry-fetch-interval-seconds: 10 #为了缓解服务列表的脏读问题，时间越短，脏读越少，但是性能越消耗大
+      register-with-eureka: true #可以不往eureka-server注册
+      fetch-registry: true #应用是否去拉去服务列表
+      registry-fetch-interval-seconds: 10 #为了缓解服务列表的脏读问题，时间越短，脏读越少，但是性能越消耗大
     instance:
       instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
       hostname: localhost #主机名称 或者服务的ip

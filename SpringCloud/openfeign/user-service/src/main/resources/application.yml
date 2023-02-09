@@ -1,8 +1,18 @@
 server:
-  port: 8081
+  port: 8082
 spring:
   application:
     name: user-service
+  cloud:
+    feign:
+      client:
+        httpclient:
+          enable: true
+# 配置OpenFeign的超时时间,和直接配置Ribbon的作用一样
+#        config:
+#          default: # 设置的全局超时时间
+#            connectTimeout: 3000 # 请求连接的超时时间
+#            readTimeout: 5000 # 请求处理的超时时间
 eureka:
   client:
     service-url:
@@ -12,3 +22,5 @@ eureka:
 ribbon:
   ReadTimeout: 3000 #读取延时3s
   ConnectTimeout: 3000 #连接超时
+  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #负载均衡策略
+

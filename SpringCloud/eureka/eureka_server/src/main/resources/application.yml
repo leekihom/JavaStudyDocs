@@ -16,7 +16,7 @@ eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_SERVER_URL:http://eurekaserver:8761/eureka}
-    register-with-eureka: ${REGISTER-WITH-EUREKA:true}
+    register-with-eureka: ${REGISTER-WITH-EUREKA:false}
     fetch-registry: ${FETCH-REGISTRY:false}
 #docker run --name eureka-server -p 8761:8761 -e REGISTER-WITH-EUREKA=false -d eureka-server:1.0
 #集群
@@ -29,6 +29,8 @@ eureka:
 #  client:
 #    service-url: #默认往8761
 #      defaultZone: http://peer2:8762/eureka,http://peer3:8763/eureka
+#    register-with-eureka: true
+#    fetch-registry: false
 #  instance: #实例的配置
 #    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
 #    hostname: peer1 #主机名称 或者服务的ip

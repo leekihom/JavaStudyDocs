@@ -3,6 +3,8 @@ package com.orderservice.controller;
 import com.orderservice.entity.Order;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 /**
  * @Author leezihong
  * @Date 2023/1/15 10:41
@@ -45,4 +47,12 @@ public class ParamController {
         System.out.println(order+"----name:"+name);
         return "ok";
     }
+
+    @GetMapping("testTime")
+    public String testTime(@RequestParam Date date) {
+        System.out.println(date);
+        return "ok";
+    }
+
+
 }

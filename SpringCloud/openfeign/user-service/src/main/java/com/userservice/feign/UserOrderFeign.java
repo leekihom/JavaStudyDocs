@@ -1,7 +1,10 @@
 package com.userservice.feign;
 
+import com.userservice.entity.Order;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 /**
  * @Author leezihong
@@ -24,4 +27,22 @@ public interface UserOrderFeign {
 
     @GetMapping("doOrder")
     public String doOrder();
+
+    @GetMapping("testUrl/{}/and/{}")
+    public String testUrl(@PathVariable("name") String name, @PathVariable("age") String age);
+
+    @GetMapping("oneParam")
+    public String oneParam(@RequestParam(required = false) String name);
+
+    @GetMapping("twoParam")
+    public String twoParam(@RequestParam(required = false) String name,@RequestParam(required = false) String age);
+
+    @PostMapping("oneObj")
+    public String oneObj(@RequestBody Order order);
+
+    @PostMapping("oneObjoneParam")
+    public String oneObjoneParam(@RequestBody Order order, @RequestParam("name") String name);
+
+    @GetMapping("testTime")
+    public String testTime(@RequestParam Date date);
 }

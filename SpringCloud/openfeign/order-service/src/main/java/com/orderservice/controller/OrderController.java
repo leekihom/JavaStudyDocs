@@ -22,6 +22,6 @@ public class OrderController {
         }catch(InterruptedException e){
             e.printStackTrace();
         }
-        return "OrderController --> doOrder() 进来了";
+        return "OrderService --> doOrder() 进来了";
     }
 }

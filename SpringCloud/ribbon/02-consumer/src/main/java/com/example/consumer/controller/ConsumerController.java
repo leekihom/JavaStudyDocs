@@ -40,7 +40,4 @@ public class ConsumerController {
         ServiceInstance choose = loadBalancerClient.choose(serviceName);
         return choose.toString();
     }
-
-
-
 }
