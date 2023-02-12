@@ -1,0 +1,18 @@
+server:
+  port: 80
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      username: nacos
+      password: nacos
+      discovery:
+        namespace: caa904e6-48a1-4e96-bd0c-3954838a96a1
+        group: A_group
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true #开启动态路由
