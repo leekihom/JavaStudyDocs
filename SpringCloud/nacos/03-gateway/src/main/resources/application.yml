@@ -13,6 +13,9 @@ spring:
         group: A_group
     gateway:
       discovery:
+        routes:
+          - id: nacos-gateway-route #唯一标识。默认是一个UUID
+            uri: lb://nacos-client-b
         locator:
           lower-case-service-id: true
           enabled: true #开启动态路由

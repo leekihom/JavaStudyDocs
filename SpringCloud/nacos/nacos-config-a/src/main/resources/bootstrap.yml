@@ -1,19 +1,28 @@
 server:
   port: 8080
 spring:
+  application:
+    name: nacos-config-a
   cloud:
     nacos:
       config:
         username: nacos
         password: nacos
-        prefix: nacos-config-a #需要读取哪个配置列表 DATA ID
-        file-extension:  yml
+        prefix: nacos-config #需要读取哪个配置列表 DATA ID
+        file-extension: yml
         server-addr: localhost:8848
-#         namespace: caa904e6-48a1-4e96-bd0c-3954838a96a1
+        #namespace: caa904e6-48a1-4e96-bd0c-3954838a96a1
+#        extension-configs: #读取同一个命名空间下面的不同组
+#          - dataId: nacos-config-dev
+#            group: DEFAULT_GROUP
+#            refresh: true #动态刷新
+#          - dataId: nacos-config
+#            group: DEFAULT_GROUP
+#            refresh: true #动态刷新
+
+  profiles:
+    active: dev
 #        shared-configs: #共享配置文件
 #          - application-dev.yml #这个文件只能存放在DEFAULT_GROUP
-
-  application:
-    name: nacos-config-a
 
 

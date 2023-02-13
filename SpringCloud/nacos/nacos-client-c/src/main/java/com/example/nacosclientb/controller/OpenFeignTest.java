@@ -16,7 +16,7 @@ public class OpenFeignTest {
 
     @GetMapping("/openFeign")
     public String FeignTest() {
-        return "OpenFeign GET Pass 8081";
+        return "OpenFeign GET Pass 8082";
     }
 }
 
