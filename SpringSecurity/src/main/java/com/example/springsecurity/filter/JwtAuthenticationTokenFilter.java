@@ -4,10 +4,7 @@ import com.example.springsecurity.domain.LoginUser;
 import com.example.springsecurity.utils.JwtUtil;
 import com.example.springsecurity.utils.RedisCache;
 import io.jsonwebtoken.Claims;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,6 +12,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -24,13 +25,14 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     @Autowired
     private RedisCache redisCache;
 
+
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, javax.servlet.FilterChain filterChain) throws javax.servlet.ServletException, IOException {
         //获取token
         String token = request.getHeader("token");
         if (!StringUtils.hasText(token)) {
             //放行
-            filterChain.doFilter(request, response);
+            filterChain.doFilter(request,  response);
             return;
         }
         //解析token
@@ -54,6 +56,6 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
                 new UsernamePasswordAuthenticationToken(loginUser,null,loginUser.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         //放行
-        filterChain.doFilter(request, response);
+        filterChain.doFilter( request,  response);
     }
 }
