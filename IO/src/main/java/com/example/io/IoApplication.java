@@ -26,7 +26,7 @@ public class IoApplication {
         /**
          * OutputStream
          */
-        OutputStream outputStream = new FileOutputStream(f,true);
+        /*OutputStream outputStream = new FileOutputStream(f,true);
         byte[] array = "\r\nhello C#!".getBytes();
         outputStream.write(array);
         InputStream inputStream = new FileInputStream(f);
@@ -34,7 +34,30 @@ public class IoApplication {
         String result = new String(bis.readAllBytes());
         System.out.println(result);
         outputStream.close();
-        inputStream.close();
+        inputStream.close();*/
+
+        /**
+         * FileReader
+         */
+
+       /* FileReader fileReader = new FileReader("D:\\IdeaWorkSpace\\JavaStudyDocs\\IO\\src\\main\\resources\\hello.txt");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        int read = fileReader.read();
+        while (read != -1){
+            char ch = (char) read;
+            System.out.print(ch);
+            read = fileReader.read();
+        }*/
+        //System.out.println(bufferedReader.readLine());;
+
+        /**
+         * FileWriter
+         */
+        Writer writer = new FileWriter(f,true);
+        BufferedWriter bufferedWriter = new BufferedWriter(writer);
+        bufferedWriter.write("okok");
+        bufferedWriter.flush();
+        bufferedWriter.close();
     }
 
 }
