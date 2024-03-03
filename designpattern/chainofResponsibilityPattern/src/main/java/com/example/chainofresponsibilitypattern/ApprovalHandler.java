@@ -12,6 +12,8 @@ public abstract class ApprovalHandler {
      */
     protected ApprovalHandler next;
 
+    protected String name;
+
     /**
      * 设置下一个处理对象
      */
@@ -24,6 +26,9 @@ public abstract class ApprovalHandler {
      */
     public abstract void approval(ApprovalHandler approvalHandler);
 
+    public void print(){
+        System.out.println("wow!   " + this.name);
+    }
     /**
      * 调用下一个处理对象
      */
